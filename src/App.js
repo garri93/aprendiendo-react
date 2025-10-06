@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter , NavLink, Route, Routes} from 'react-router';
+import ListaPokemons from './componentes/listaPokemons';
+import { useState } from 'react';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div>
+      <>
+      <h1> Hola mundo</h1>
+      <Routes>
+        <Route path='/' element={
+          <div>
+            <h2>dsdsd</h2>
+            <ListaPokemons />
+
+          </div>
+
+        }/>
+      </Routes>
+      </>
     </div>
+    </BrowserRouter>
   );
 }
 
