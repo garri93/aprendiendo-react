@@ -1,30 +1,20 @@
-import React from "react";
-//import pokemondata from '../assets/pokemon.json';
+import pokemons from '../assets/pokemon.js';
 import { useState, useEffect } from 'react';
-
+import {BrowserRouter , NavLink, Route, Routes,Link} from 'react-router';
 const ListaPokemons = () => {
-    const [pokemon,setPokemon] = useState(null);
 
-    useEffect (() => {
-        const fetchData = async () => {
-        const response = await fetch('../assets/pokemon.json');
-        const jsonData = await response.json();
-        setPokemon(jsonData); // Almacenamos los datos en el estado
-    };
-    fetchData();
-    });
+    const [pokemonList,setPokemonList] = useState([]);
 
+      useEffect(() => {
+    setPokemonList(pokemons);
+       }, []);
 
     return (
-        <>
-         <ul>
-      {pokemon.map((pokemon) => (
-        <li key={pokemon.id}>
-          {pokemon.name}
-        </li>
-      ))}
-    </ul>
-        </>
+      pokemonList.map((pokemon) => (
+        <div key={pokemon.id}>
+          <Link to={`/detallesPokemon/${pokemon.id}`}>{pokemon.name}</Link>
+          </div>
+    ))
 
     );
 }

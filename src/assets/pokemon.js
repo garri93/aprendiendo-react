@@ -50,3 +50,5 @@ const pokemons = [
   { id: 49, name: "Venomoth", type: ["Bug", "Poison"], level: 30 },
   { id: 50, name: "Diglett", type: ["Ground"], level: 5 },
 ];
+
+export default pokemons;
